@@ -1,0 +1,469 @@
+:root {
+    --primary-color: #1a2634;  /* Deep Oxford Blue */
+    --secondary-color: #1d2d44;  /* Darker Navy Blue */
+    --accent-color: #3d5a80;  /* Rich Navy */
+    --text-color: #e1e1e1;
+    --highlight-color: #748cab;  /* Steel Blue */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', serif;
+    background: linear-gradient(135deg, 
+        var(--primary-color),
+        var(--secondary-color)
+    );
+    position: relative;
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            rgba(61, 90, 128, 0.05) 0px,
+            rgba(61, 90, 128, 0.05) 2px,
+            transparent 2px,
+            transparent 4px
+        );
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    padding: 3rem 0;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--highlight-color);
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-info a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 1.2rem;
+}
+
+.contact-info a:hover {
+    color: var(--highlight-color);
+}
+
+section {
+    margin: 4rem 0;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(116, 140, 171, 0.1);
+    border-radius: 10px;
+}
+
+h2 {
+    color: var(--highlight-color);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    font-size: 2.2rem;
+}
+
+.timeline .entry {
+    margin-bottom: 3rem;
+    position: relative;
+    padding-left: 3rem;
+}
+
+.timeline .entry:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--accent-color);
+}
+
+.timeline .entry:after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--highlight-color);
+}
+
+.date {
+    color: var(--highlight-color);
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2.8rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+
+.institution {
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.thesis {
+    margin: 1rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(116, 140, 171, 0.1);
+    border-radius: 5px;
+}
+
+.thesis h4 {
+    color: var(--highlight-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+}
+
+.thesis p {
+    font-size: 1.4rem;
+    line-height: 2;
+    letter-spacing: 0.02em;
+    padding: 0.5rem 0;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tags span {
+    background: var(--accent-color);
+    padding: 0.2rem 0.8rem;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.tags span:hover {
+    background: var(--highlight-color);
+}
+
+.timeline .entry h3 {
+    color: var(--highlight-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.description {
+    margin: 1rem 0;
+    padding: 1rem;
+    font-size: 1.3rem;
+    line-height: 1.8;
+}
+
+.description ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.description li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.description li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--highlight-color);
+}
+
+.description p {
+    padding: 0 1rem;
+}
+
+.publication-list {
+    padding: 1rem 0;
+}
+
+.publication {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(116, 140, 171, 0.1);
+    border-radius: 5px;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    transition: transform 0.2s ease-in-out;
+}
+
+.publication:hover {
+    transform: translateX(10px);
+    background: rgba(61, 90, 128, 0.1);
+    border: 1px solid rgba(116, 140, 171, 0.2);
+}
+
+.publication .title {
+    color: var(--highlight-color);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.publication .authors {
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-size: 1.3rem;
+}
+
+.publication .details {
+    margin: 0.5rem 0;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+.publication .advisors {
+    color: var(--text-color);
+    margin: 0.5rem 0;
+    font-style: italic;
+}
+
+.publication .links {
+    margin-top: 1rem;
+}
+
+.publication .links a {
+    color: var(--highlight-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s;
+}
+
+.publication .links a:hover {
+    color: var(--text-color);
+}
+
+.publication .type {
+    color: var(--highlight-color);
+    font-weight: 500;
+}
+
+.publication .venue {
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+.publication .year {
+    color: var(--highlight-color);
+    font-weight: 500;
+}
+
+.subitems {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 5px;
+}
+
+.research-intern {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(116, 140, 171, 0.1);
+    border-radius: 5px;
+}
+
+.research-intern h4 {
+    color: var(--highlight-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+}
+
+.research-intern .date {
+    margin-bottom: 1rem;
+}
+
+.certificates .entry {
+    padding-bottom: 1rem;
+}
+
+.certificates .cert-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.certificates .cert-content .date {
+    min-width: 4rem;
+    color: var(--highlight-color);
+    font-size: 1.4rem;
+}
+
+.certificates .cert-content .title {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.certificates .cert-content .institution {
+    color: var(--highlight-color);
+    font-size: 1.2rem;
+    margin: 0;
+    font-style: italic;
+}
+
+.certificates .cert-content:before {
+    content: '•';
+    color: var(--highlight-color);
+}
+
+.certificates .entry:hover {
+    transform: translateX(10px);
+    transition: transform 0.3s ease;
+}
+
+.certificates .entry .institution {
+    color: var(--highlight-color);
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.skill-category {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(116, 140, 171, 0.1);
+    border-radius: 10px;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateX(10px);
+    background: rgba(61, 90, 128, 0.1);
+    border: 1px solid rgba(116, 140, 171, 0.2);
+}
+
+.skill-category h3 {
+    color: var(--highlight-color);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.skill-description {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+}
+
+.skill-description ul {
+    list-style: none;
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+}
+
+.skill-description li {
+    position: relative;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.skill-description li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--highlight-color);
+}
+
+.skill-description p {
+    margin-bottom: 1rem;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.skill-tags span {
+    background: var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.skill-tags span:hover {
+    background: var(--highlight-color);
+    transform: translateY(-2px);
+} 
