@@ -16,13 +16,7 @@
                 <a href="https://www.linkedin.com/in/silin-zhao"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/scofild429"><i class="fab fa-github"></i> GitHub</a>
                 <a href="http://base.silinzhao.com"><i class="fas fa-globe"></i> Base</a>
-                <div class="dropdown">
-                    <a href="#" class="dropbtn"><i class="fas fa-project-diagram"></i> Projects <i class="fa fa-caret-down"></i></a>
-                    <div class="dropdown-content">
-                        <a target="_blank" href="https://interview.sixiangxiang.com">Interview</a>
-                        <a target="_blank" href="https://myrag.sixiangxiang.com">RAG system</a>
-                    </div>
-                </div>
+                <a href="#" class="modal-trigger" id="projectsTrigger"><i class="fas fa-project-diagram"></i> Projects</a>
             </div>
         </header>
 
@@ -272,5 +266,120 @@
             </section>
         </main>
     </div>
+
+    <!-- Projects Modal -->
+    <div class="modal" id="projectsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-project-diagram"></i> My Projects</h2>
+                <button class="close-modal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Project items will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('projectsModal');
+        const closeModal = document.querySelector('.close-modal');
+        
+        // Open modal function (will be called from trigger)
+        function openProjectsModal() {
+            modal.style.display = 'block';
+            // Trigger reflow for smooth animation
+            setTimeout(() => modal.classList.add('active'), 10);
+        }
+        
+        // Close modal function
+        function closeProjectsModal() {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300); // Match CSS transition duration
+        }
+        
+        // Event listeners
+        closeModal.addEventListener('click', closeProjectsModal);
+        
+        // Modal trigger
+        const projectsTrigger = document.getElementById('projectsTrigger');
+        if (projectsTrigger) {
+            projectsTrigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                openProjectsModal();
+            });
+        }
+        
+        // Close modal when clicking outside content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeProjectsModal();
+            }
+        });
+        
+        // Close with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeProjectsModal();
+            }
+        });
+        
+        // Project data - can be extended with more projects
+        const projectsData = [
+            {
+                title: "Interview Platform",
+                url: "https://interview.sixiangxiang.com",
+                description: "A comprehensive interview preparation platform, mock interviews, and generating motivation letter for typst.",
+                tags: ["OpenAI", "Interview", "Conversation"]
+            },
+            {
+                title: "RAG System",
+                url: "https://myrag.sixiangxiang.com",
+                description: "Retrieval-Augmented Generation system for Emacs with Langchain and OpenAI backend.",
+                tags: ["Langchain", "OpenAI", "RAG", "Emacs"]
+            },
+            {
+                title: "Tauri Dating App (Chinese)",
+                url: "https://linsheng.sixiangxiang.com",
+                description: "Desktop/web application built with Tauri framework, combining web technologies with native desktop capabilities.",
+                tags: ["Tauri", "Typescript", "Rust"]
+            }
+        ];
+        
+        // Populate projects grid
+        function populateProjects() {
+            const projectsGrid = document.getElementById('projectsGrid');
+            projectsGrid.innerHTML = '';
+            
+            projectsData.forEach(project => {
+                const projectItem = document.createElement('div');
+                projectItem.className = 'project-item';
+                
+                const titleLink = project.url 
+                    ? `<a href="${project.url}" target="_blank" rel="noopener noreferrer">${project.title}</a>`
+                    : project.title;
+                
+                projectItem.innerHTML = `
+                    <h3 class="project-title">
+                        <i class="fas fa-code-branch"></i>
+                        ${titleLink}
+                    </h3>
+                    <p class="project-description">${project.description}</p>
+                    <div class="project-tags">
+                        ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+                    </div>
+                `;
+                
+                projectsGrid.appendChild(projectItem);
+            });
+        }
+        
+        // Initialize on DOM content loaded
+        document.addEventListener('DOMContentLoaded', populateProjects);
+    </script>
 </body>
 </html> 
