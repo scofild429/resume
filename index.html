@@ -15,6 +15,7 @@
                 <a href="mailto:silin110zhao@gmail.com"><i class="fas fa-envelope"></i> silin110zhao@gmail.com</a>
                 <a href="https://www.linkedin.com/in/silin-zhao"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/scofild429"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://orcid.org/0009-0006-4611-6422"><i class="fab fa-orcid"></i> ORCID</a>
                 <a href="http://base.silinzhao.com"><i class="fas fa-globe"></i> Base</a>
                 <a href="#" class="modal-trigger" id="projectsTrigger"><i class="fas fa-project-diagram"></i> Projects</a>
             </div>
@@ -31,7 +32,7 @@
                         <div class="subitems">
                             <div class="thesis">
                                 <h4>Master Thesis:</h4>
-                                <p>Improving the portability and interoperability of deep learning workloads using ONNX. Developed a supervised NLP classification model with the attention mechanism to automate the AI tasks in the GWDG ticket system. With a well-trained model, we cyclically update the model by retraining and inference with multiple programming languages on different devices. A cross-programming languages and devices framework has been established for federated learning and on-device learning with ONNX.</p>
+                                <p>Developed a supervised NLP classification model using Transformer Encoder to automate ticket assignment in the GWDG ticket system by identifying the most suitable technical supporter for newly submitted tickets. The model is regularly retrained and deployed across multiple programming languages and devices using ONNX, enabling cross-platform and on-device inference.</p>
                                 <div class="tags">
                                     <span>NLP</span>
                                     <span>PyTorch</span>
@@ -49,9 +50,9 @@
                                 <p class="date">2023.10 - 2024.05</p>
                                 <div class="description">
                                     <ul>
-                                        <li>Implemented a ResNet series deep learning framework using Golang with GPU utilization, optimizing the environment to eliminate dependency issues for execution within GWDG's cluster. Explored performance comparisons between this implementation and Python, as well as distributed learning implementations for this approach.</li>
-                                        <li>Evaluating high-performance computing (HPC) benchmarks, including IO500, HPL, HPCG, and STREAM, to assess system performance. Developing and implementing the MiniBUDE benchmark across multiple parallel programming models—OpenMP, Julia, CUDA, OpenACC, and OpenCL—on both CPU and GPU architectures.</li>
-                                        <li>I have gained practical experience in high-performance computing (HPC) through Linux system operations, cluster management, and parallel computing using MPI and CUDA. Designed and implemented a distributed learning system from the ground up utilizing Golang in combination with MPI for inter-process communication.</li>
+                                        <li>Implemented the ResNet model family in pure Golang without external AI framework dependencies, deployed compiled binaries on the GWDG cluster using Singularity containers with GPU support. Benchmarked model performance and investigated distributed learning strategies across multiple nodes.</li>
+                                        <li>Tested HPC benchmarks including IO500, HPL, HPCG, and STREAM to assess system performance. Implemented the MiniBUDE benchmark using OpenMP, Julia, CUDA, OpenACC, and OpenCL on both CPU and GPU architectures.</li>
+                                        <li>Managed clusters, performed performance analysis, and developed parallel computing solutions with MPI and CUDA. Designed and implemented a distributed learning system using Golang with MPI for inter-process communication.</li>
                                     </ul>
                                 </div>
                                 <div class="tags">
@@ -74,7 +75,23 @@
                         <p class="institution">University of Göttingen, Germany</p>
                         <div class="thesis">
                             <h4>Master Thesis:</h4>
-                            <p>Using the Standard Model and the Higgs mechanism, we utilize Madgraph to simulate collisions in the HLC, aiming to explore parameter constraints for dark matter candidate particles predicted by the Inert Doublet Model.</p>
+                            <p>Simulated particle collisions at the LHC using MadGraph within the Standard Model and Higgs mechanism framework to explore parameter constraints for dark matter candidates predicted by the Inert Doublet Model.</p>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <h3>Bachelor of Applied Informatics</h3>
+                        <p class="date">2020 - 2021</p>
+                        <p class="institution">University of Göttingen, Germany</p>
+                        <div class="description">
+                            <p>Completed core computer science coursework and was admitted directly to the master's program.</p>
+                        </div>
+                        <div class="tags">
+                            <span>Operating Systems</span>
+                            <span>Algorithms</span>
+                            <span>Data Structures</span>
+                            <span>Java</span>
+                            <span>C/C++</span>
                         </div>
                     </div>
 
@@ -94,11 +111,35 @@
                 <h2><i class="fas fa-microscope"></i> Professional Experience</h2>
                 <div class="timeline">
                     <div class="entry">
-                        <h3>AI Agent Developer</h3>
-                        <p class="date">2025.04 - 2023.05</p>
-                        <p class="institution">DWDG</p>
+                        <h3>AI Engineering</h3>
+                        <p class="date">2025.11 - 2026.03</p>
+                        <p class="institution">Turing College</p>
                         <div class="description">
-                            <p>Designed and developed the LynxNLI assistant agent to support Linux operations within high-performance computing (HPC) environments. As the principal developer, I contributed to all stages of the project, from framework architecture to the implementation of specialized tools, thereby enabling natural language interaction to address diverse user requirements in Linux and HPC systems.</p>
+                            <ul>
+                                <li>Built multiple end-to-end AI applications with customized tools and systematic prompt engineering, deployed on Kubernetes, managing the full lifecycle from development to production.</li>
+                                <li>Integrated MCP to connect LLMs with external tools and APIs.</li>
+                                <li>Built RAG pipelines with distributed Qdrant for hybrid search and context-aware retrieval.</li>
+                                <li>Managed short- and long-term memory for user personalization, incorporating Human-in-the-Loop feedback mechanisms.</li>
+                            </ul>
+                        </div>
+                        <div class="tags">
+                            <span>LLM</span>
+                            <span>LangGraph</span>
+                            <span>LangChain</span>
+                            <span>MCP</span>
+                            <span>RAG</span>
+                            <span>Qdrant</span>
+                            <span>Kubernetes</span>
+                            <span>OpenClaw</span>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <h3>Competition Project: AgentX</h3>
+                        <p class="date">2025.04 - 2025.05</p>
+                        <p class="institution">GWDG</p>
+                        <div class="description">
+                            <p>Built LynxNLI, an assistant agent that simplifies Linux operations in HPC environments through natural language. Served as core developer, owning the project from framework design to tool implementation.</p>
                         </div>
                         <div class="tags">
                             <span>LLM</span>
@@ -113,9 +154,9 @@
                     <div class="entry">
                         <h3>Python Developer</h3>
                         <p class="date">2022.10 - 2023.09</p>
-                        <p class="institution">DWDG</p>
+                        <p class="institution">GWDG</p>
                         <div class="description">
-                            <p>We implemented a content management project based on a predefined authentication system. With many layers of authentication and permission control, our work satisfied diverse requirements for keyword search, attribute filtering, auto-complete, and API exposure with customized authentication precedence. I also made a significant contribution to testing and implementation.</p>
+                            <p>Built a content management system with integrated authentication, featuring a multi-layer security model for authentication and role-based permission control. Developed backend features for email-based notifications, keyword search, attribute filtering, timed tasks, and REST API endpoints with custom access rules. Owned testing and deployment, covering unit tests, integration tests, and production rollout.</p>
                         </div>
                         <div class="tags">
                             <span>Python</span>
@@ -133,7 +174,7 @@
                         <p class="date">2022.02 - 2022.09</p>
                         <p class="institution">Eforsch</p>
                         <div class="description">
-                            <p>Managed all aspects of the project to implement a platform for digitizing chemical and biological experiments, which enabled automated calculations, report generation, and user supply management. Oversaw the full project lifecycle, including implementation, testing, and deployment, which was funded by the NBank Gründungsstipendium in Niedersachsen.</p>
+                            <p>Built a full-stack platform for digitizing chemical and biological experiments, funded by the NBank Gründungsstipendium in Niedersachsen. Automated experiment workflows including calculations, report generation, and supply tracking. Managed the full project lifecycle as sole developer, from initial implementation through production deployment.</p>
                         </div>
                         <div class="tags">
                             <span>Vue</span>
@@ -143,6 +184,18 @@
                             <span>Nginx</span>
                             <span>Docker compose</span>
                             <span>Cloud server</span>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <h3>Robotics Engineer</h3>
+                        <p class="date">2019.12 - 2020.05</p>
+                        <p class="institution">Mianyang Lunqi Robotics Co., Ltd.</p>
+                        <div class="description">
+                            <ul>
+                                <li>Deployed AI-based visual inspection systems for custom industrial automation applications.</li>
+                                <li>Collaborated with university research groups to develop solutions for client-specific requirements.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -172,12 +225,62 @@
                             </a>
                         </div>
                     </div>
+
+                    <div class="publication">
+                        <div class="title">
+                            Improving Portability and Interoperability of Deep-Learning-Workloads using ONNX
+                        </div>
+                        <div class="authors">
+                            Silin Zhao
+                        </div>
+                        <div class="details">
+                            <span class="type">Journal Article</span> • 
+                            <span class="institution">Applied Intelligence (Springer Nature)</span> • 
+                            <span class="year">2025</span>
+                        </div>
+                        <div class="status">
+                            Under Review
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <div class="title">
+                            Growing Domain-Specific LLMs Through Federated Split-Phase Learning: System Design and Analysis
+                        </div>
+                        <div class="authors">
+                            Silin Zhao
+                        </div>
+                        <div class="details">
+                            <span class="type">Conference Paper</span> • 
+                            <span class="institution">Federated Learning Systems &amp; Applications (FLICS)</span> • 
+                            <span class="year">2026</span>
+                        </div>
+                        <div class="status">
+                            Accepted
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section class="certificates">
                 <h2><i class="fas fa-certificate"></i> Certificates</h2>
                 <div class="timeline">
+                    <div class="entry">
+                        <div class="cert-content">
+                            <span class="date">2026</span>
+                            <span class="title">AI Engineering Professional Certificate</span>
+                            <span class="institution">Turing College</span>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="cert-content">
+                            <span class="date">2025</span>
+                            <span class="title">Kubernetes Certified Application Developer (CKAD)</span>
+                            <span class="institution">Udemy</span>
+                        </div>
+                    </div>
+
                     <div class="entry">
                         <div class="cert-content">
                             <span class="date">2025</span>
@@ -228,7 +331,15 @@
 
                     <div class="entry">
                         <div class="cert-content">
-                            <span class="date">2014</span>
+                            <span class="date">2013</span>
+                            <span class="title">Teacher Qualification Certificate (High School Physics)</span>
+                            <span class="institution">Ministry of Education, PRC</span>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="cert-content">
+                            <span class="date">2015</span>
                             <span class="title">Patent: ZL2011 1 0004207.2</span>
                             <span class="institution">China National Intellectual Property Administration</span>
                         </div>
