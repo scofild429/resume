@@ -21,8 +21,21 @@
             </div>
         </header>
 
-        <main>
-            <section class="education">
+        <div class="content-wrapper">
+            <aside class="sidebar" id="sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="#education" class="sidebar-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                        <li><a href="#experience" class="sidebar-link"><i class="fas fa-microscope"></i> Professional Experience</a></li>
+                        <li><a href="#publications" class="sidebar-link"><i class="fas fa-book"></i> Publications</a></li>
+                        <li><a href="#certificates" class="sidebar-link"><i class="fas fa-certificate"></i> Certificates</a></li>
+                        <li><a href="#skills" class="sidebar-link"><i class="fas fa-brain"></i> Specialized Skills</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="main-content">
+            <section id="education" class="education">
                 <h2><i class="fas fa-graduation-cap"></i> Education</h2>
                 <div class="timeline">
                     <div class="entry">
@@ -32,16 +45,21 @@
                         <div class="subitems">
                             <div class="thesis">
                                 <h4>Master Thesis:</h4>
-                                <p>Developed a supervised NLP classification model using Transformer Encoder to automate ticket assignment in the GWDG ticket system by identifying the most suitable technical supporter for newly submitted tickets. The model is regularly retrained and deployed across multiple programming languages and devices using ONNX, enabling cross-platform and on-device inference.</p>
+                                <p>Investigated ONNX as a unified middleware to bridge fragmented AI ecosystems (PyTorch, TensorFlow) by evaluating its portability and interoperability across the full AI development lifecycle. Built a custom Transformer Encoder from scratch in PyTorch to classify newly submitted tickets in the GWDG support system and predict the most suitable technical supporter. The data pipeline encompassed dialogue extraction and concatenation, stopword removal and stemming, statistical word-length analysis with Gaussian-fitted cutoff thresholds, word embedding, and multi-strategy dataset splitting. Hyperparameters — learning rate, batch size, number of attention heads, and number of encoder layers — were systematically explored over 300 epochs on the GWDG cluster using A100 GPUs, yielding an optimal configuration (batch size 1, lr 5e-7, 1 head, 4 layers). The model achieved 65% accuracy in recognizing ticket owners among 144 candidates from full conversations, and 22% accuracy when predicting candidates solely from the first submitted question. For portability, the model was exported in five formats — PyTorch state parameters, whole model, checkpoint, TorchScript-ONNX, and Dynamo-ONNX — and retrained across Python, C, C++, Rust, and JavaScript ONNX Runtime environments on both GPU and CPU. TorchScript-ONNX outperformed Dynamo-ONNX in Python but showed the reverse pattern in other languages; Rust exhibited over 2x inference latency compared to C/C++ and JavaScript due to FFI overhead. After reconfiguring the learning rate via ONNX Runtime's exposed API, retraining accuracy improved to 70% (owner recognition) and 25% (candidate prediction), surpassing the original PyTorch baseline. A distributed ONNX-based framework supporting (hyper-)federated learning across heterogeneous devices and programming languages was proposed as a direct outcome of the portability and interoperability findings.</p>
                                 <div class="tags">
                                     <span>NLP</span>
+                                    <span>Transformer</span>
                                     <span>PyTorch</span>
                                     <span>ONNX</span>
                                     <span>ONNX Runtime</span>
+                                    <span>TorchScript</span>
+                                    <span>Dynamo</span>
+                                    <span>A100</span>
                                     <span>CUDA</span>
                                     <span>C/C++</span>
                                     <span>Rust</span>
-                                    <span>Javascript</span>
+                                    <span>JavaScript</span>
+                                    <span>Federated Learning</span>
                                     <span>Slurm</span>
                                 </div>
                             </div>
@@ -107,7 +125,7 @@
                 </div>
             </section>
 
-            <section class="research">
+            <section id="experience" class="research">
                 <h2><i class="fas fa-microscope"></i> Professional Experience</h2>
                 <div class="timeline">
                     <div class="entry">
@@ -201,7 +219,7 @@
                 </div>
             </section>
 
-            <section class="publications">
+            <section id="publications" class="publications">
                 <h2><i class="fas fa-book"></i> Publications</h2>
                 <div class="publication-list">
                     <div class="publication">
@@ -262,7 +280,7 @@
                 </div>
             </section>
 
-            <section class="certificates">
+            <section id="certificates" class="certificates">
                 <h2><i class="fas fa-certificate"></i> Certificates</h2>
                 <div class="timeline">
                     <div class="entry">
@@ -347,35 +365,57 @@
                 </div>
             </section>
 
-            <section class="skills">
+            <section id="skills" class="skills">
                 <h2><i class="fas fa-brain"></i> Specialized Skills</h2>
                 <div class="skills-container">
                     <div class="skill-category">
                         <h3><i class="fas fa-robot"></i> Large Language Models</h3>
                         <div class="skill-description">
-                            <p>Extensive experience in LLM development and deployment:</p>
                             <ul>
-                                <li>Local LLM Deployment: Hosting and managing LLMs locally using Ollama, developing AI agents powered by LangChain</li>
-                                <li>Model Fine-tuning: Implementation of advanced techniques including (Q)LoRA for model optimization</li>
-                                <li>Knowledge Engineering: Construction of knowledge graphs using GraphRAG for efficient, global information retrieval</li>
-                                <li>Data Processing: Preprocessing and handling large-scale data using specialized tools like LET</li>
-                                <li>Infrastructure: Implementation of secure retrieval-augmented generation projects using MCP for multi-server management</li>
-                                <li>API Integration: Experience with both leading commercial APIs and local API implementations</li>
+                                <li>LLM deployment with Ollama for local inference across multiple environments</li>
+                                <li>OpenClaw and Hermes agent deployment and orchestration in Kubernetes</li>
+                                <li>MCP server implementation for local service exposure and multi-server management</li>
+                                <li>AI agent skill management with modular tool integration and custom workflows</li>
+                                <li>Aichat project: conversational AI interface with extensible plugin architecture</li>
+                                <li>RAG pipelines with hybrid search and context-aware retrieval using Qdrant</li>
+                                <li>API Integration: experience with leading commercial APIs and local API implementations</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="skill-category">
-                        <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                        <h3><i class="fas fa-code"></i> Programming &amp; Tools</h3>
                         <div class="skill-tags">
-                            <span><i class="fas fa-language"></i> English (C1)</span>
-                            <span><i class="fas fa-language"></i> German (C1)</span>
+                            <span>Python</span>
+                            <span>Golang</span>
+                            <span>Rust</span>
+                            <span>C/C++</span>
+                            <span>JavaScript</span>
+                            <span>PyTorch</span>
+                            <span>Django</span>
+                            <span>Kubernetes</span>
+                            <span>Docker</span>
+                            <span>LangChain</span>
+                            <span>LangGraph</span>
+                            <span>ONNX</span>
+                            <span>Slurm</span>
+                            <span>MPI</span>
                             <span><i class="fas fa-terminal"></i> Emacs (10+ years)</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-language"></i> Languages</h3>
+                        <div class="skill-tags">
+                            <span>English (C1)</span>
+                            <span>German (C1)</span>
+                            <span>Chinese (Native)</span>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
+        </div>
     </div>
 
     <!-- Projects Modal -->
@@ -394,6 +434,37 @@
     </div>
 
     <script>
+        // Intersection Observer for scroll-spy sidebar
+        const sections = document.querySelectorAll('section[id]');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const link = document.querySelector(`.sidebar-link[href="#${id}"]`);
+                if (entry.isIntersecting) {
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, {
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        });
+
+        sections.forEach(section => observer.observe(section));
+
+        // Smooth scroll on sidebar link click
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
         // Modal functionality
         const modal = document.getElementById('projectsModal');
         const closeModal = document.querySelector('.close-modal');
