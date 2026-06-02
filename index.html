@@ -9,48 +9,36 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Silin Zhao</h1>
-            <div class="contact-info">
-                <a href="mailto:silin110zhao@gmail.com"><i class="fas fa-envelope"></i> silin110zhao@gmail.com</a>
-                <a href="https://www.linkedin.com/in/silin-zhao"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/scofild429"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://orcid.org/0009-0006-4611-6422"><i class="fab fa-orcid"></i> ORCID</a>
-                <a href="http://base.silinzhao.com"><i class="fas fa-globe"></i> Base</a>
-		<a href="http://roam.silinzhao.com"><i class="fas fa-globe"></i> Roam</a>
-                <a href="#" class="modal-trigger" id="projectsTrigger"><i class="fas fa-project-diagram"></i> Projects</a>
-            </div>
-        </header>
-
-        <!-- Theme toggle -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-            <i class="fas fa-moon"></i>
-        </button>
-
-        <!-- Sidebar reopen button (visible when sidebar collapsed) -->
-        <button class="sidebar-reopen" id="sidebarReopen" aria-label="Open sidebar">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-
-        <div class="content-wrapper">
-            <aside class="sidebar" id="sidebar">
-                <div class="sidebar-header">
-                    <span class="sidebar-title">Contents</span>
-                    <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar">
-                        <i class="fas fa-times"></i>
-                    </button>
+        <header id="site-header">
+            <div class="header-content">
+                <div class="contact-info">
+                    <a href="mailto:silin110zhao@gmail.com"><i class="fas fa-envelope"></i> silin110zhao@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/silin-zhao"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/scofild429"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://orcid.org/0009-0006-4611-6422"><i class="fab fa-orcid"></i> ORCID</a>
+                    <a href="http://base.silinzhao.com"><i class="fas fa-globe"></i> Base</a>
+                    <a href="http://roam.silinzhao.com"><i class="fas fa-globe"></i> Roam</a>
+                    <a href="#" class="modal-trigger" id="projectsTrigger"><i class="fas fa-project-diagram"></i> Projects</a>
                 </div>
-                <nav>
+                
+                <nav class="top-nav">
                     <ul>
-                        <li><a href="#education" class="sidebar-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                        <li><a href="#experience" class="sidebar-link"><i class="fas fa-microscope"></i> Professional Experience</a></li>
-                        <li><a href="#publications" class="sidebar-link"><i class="fas fa-book"></i> Publications</a></li>
-                        <li><a href="#certificates" class="sidebar-link"><i class="fas fa-certificate"></i> Certificates</a></li>
-                        <li><a href="#skills" class="sidebar-link"><i class="fas fa-brain"></i> Specialized Skills</a></li>
+                        <li><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                        <li><a href="#experience" class="nav-link"><i class="fas fa-microscope"></i> Professional Experience</a></li>
+                        <li><a href="#publications" class="nav-link"><i class="fas fa-book"></i> Publications &amp; Patents</a></li>
+                        <li><a href="#certificates" class="nav-link"><i class="fas fa-certificate"></i> Certificates</a></li>
+                        <li><a href="#skills" class="nav-link"><i class="fas fa-brain"></i> Specialized Skills</a></li>
                     </ul>
                 </nav>
-            </aside>
+            </div>
+            
+            <!-- Theme toggle -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
 
+        <div class="content-wrapper">
             <main class="main-content">
             <section id="education" class="education">
                 <h2><i class="fas fa-graduation-cap"></i> Education</h2>
@@ -61,44 +49,123 @@
                         <p class="institution">University of Göttingen, Germany</p>
                         <div class="subitems">
                             <div class="thesis">
-                                <h4>Master Thesis:</h4>
-                                <p>Investigated ONNX as a unified middleware to bridge fragmented AI ecosystems (PyTorch, TensorFlow) by evaluating its portability and interoperability across the full AI development lifecycle. Built a custom Transformer Encoder from scratch in PyTorch to classify newly submitted tickets in the GWDG support system and predict the most suitable technical supporter. The data pipeline encompassed dialogue extraction and concatenation, stopword removal and stemming, statistical word-length analysis with Gaussian-fitted cutoff thresholds, word embedding, and multi-strategy dataset splitting. Hyperparameters — learning rate, batch size, number of attention heads, and number of encoder layers — were systematically explored over 300 epochs on the GWDG cluster using A100 GPUs, yielding an optimal configuration (batch size 1, lr 5e-7, 1 head, 4 layers). The model achieved 65% accuracy in recognizing ticket owners among 144 candidates from full conversations, and 22% accuracy when predicting candidates solely from the first submitted question. For portability, the model was exported in five formats — PyTorch state parameters, whole model, checkpoint, TorchScript-ONNX, and Dynamo-ONNX — and retrained across Python, C, C++, Rust, and JavaScript ONNX Runtime environments on both GPU and CPU. TorchScript-ONNX outperformed Dynamo-ONNX in Python but showed the reverse pattern in other languages; Rust exhibited over 2x inference latency compared to C/C++ and JavaScript due to FFI overhead. After reconfiguring the learning rate via ONNX Runtime's exposed API, retraining accuracy improved to 70% (owner recognition) and 25% (candidate prediction), surpassing the original PyTorch baseline. A distributed ONNX-based framework supporting (hyper-)federated learning across heterogeneous devices and programming languages was proposed as a direct outcome of the portability and interoperability findings.</p>
-                                <div class="tags">
-                                    <span>NLP</span>
-                                    <span>Transformer</span>
-                                    <span>PyTorch</span>
-                                    <span>ONNX</span>
-                                    <span>ONNX Runtime</span>
-                                    <span>TorchScript</span>
-                                    <span>Dynamo</span>
-                                    <span>A100</span>
-                                    <span>CUDA</span>
-                                    <span>C/C++</span>
-                                    <span>Rust</span>
-                                    <span>JavaScript</span>
-                                    <span>Federated Learning</span>
-                                    <span>Slurm</span>
+                                <h4>Master Thesis</h4>
+                                <div class="project-block" style="margin-top: 1rem;">
+                                    <h5 style="color: var(--highlight); font-size: clamp(1rem, 1.3vw, 1.4rem); margin-bottom: 0.5rem;">Improving Portability and Interoperability of Deep-Learning Workloads using ONNX</h5>
+                                    <div class="description">
+                                        <p>Investigated ONNX as a unified middleware to bridge fragmented AI ecosystems (e.g., PyTorch, TensorFlow) by evaluating its portability and interoperability across the full AI development lifecycle.</p>
+                                        <p style="margin-top: 1rem;"><strong>Key Contributions &amp; Technical Details:</strong></p>
+                                        <ul>
+                                            <li><strong>NLP Model Architecture:</strong> Designed a custom PyTorch Transformer Encoder from scratch (utilizing multi-head self-attention and layer normalization) to act as an automated ticket distributor, mapping natural language queries to the most suitable technical supporter among all possible candidates.</li>
+                                            <li><strong>Data Pipeline:</strong> Engineered a comprehensive NLP data pipeline processing real-world tickets. Features included dialogue extraction, stopword removal, Gaussian-fitted statistical word-length analysis, <code>Word2Vec</code> embeddings, and multi-strategy data partitioning.</li>
+                                            <li><strong>Training &amp; Optimization:</strong> Systematically explored hyperparameters (learning rate, batch size, attention heads, encoder layers) over 300 epochs on the GWDG cluster using A100 GPUs. The model achieved 65% accuracy in recognizing ticket owners from full conversations, and 22% when predicting solely from the first submitted question.</li>
+                                            <li><strong>Portability Evaluation:</strong> Exported the trained PyTorch model into TorchScript-ONNX and Dynamo-ONNX formats. Evaluated inference and retraining compatibility across diverse ONNX Runtime environments including Python (GPU/CPU), C, C++, Rust, and JavaScript (CPU).</li>
+                                            <li><strong>Performance Analysis:</strong> Achieved a 10x inference speedup using Python with ONNX Runtime on GPUs compared to native PyTorch. Revealed that JavaScript achieved near-C++ speeds using native NPM bindings, while identified FFI overhead in Rust caused over 2x inference latency.</li>
+                                            <li><strong>Interoperability &amp; Distributed Learning:</strong> Overcame model conversion degradation by dynamically reconfiguring the learning rate via ONNX Runtime's exposed APIs, boosting retraining accuracy to 70%. Proposed a distributed ONNX-based framework enabling advanced architectures (Federated Learning, Hyper-FL, Personalized Learning) to satisfy strict data privacy requirements across heterogeneous devices without ecosystem lock-in.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tags">
+                                        <span>NLP</span>
+                                        <span>Transformer</span>
+                                        <span>PyTorch</span>
+                                        <span>ONNX</span>
+                                        <span>ONNX Runtime</span>
+                                        <span>TorchScript</span>
+                                        <span>Dynamo</span>
+                                        <span>A100</span>
+                                        <span>CUDA</span>
+                                        <span>C/C++</span>
+                                        <span>Rust</span>
+                                        <span>JavaScript</span>
+                                        <span>Federated Learning</span>
+                                        <span>Slurm</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="research-intern">
-                                <h4>Research Intern</h4>
+                                <h4>Research Projects</h4>
                                 <p class="date">2023.10 - 2024.05</p>
-                                <div class="description">
-                                    <ul>
-                                        <li>Implemented the ResNet model family in pure Golang without external AI framework dependencies, deployed compiled binaries on the GWDG cluster using Singularity containers with GPU support. Benchmarked model performance and investigated distributed learning strategies across multiple nodes.</li>
-                                        <li>Tested HPC benchmarks including IO500, HPL, HPCG, and STREAM to assess system performance. Implemented the MiniBUDE benchmark using OpenMP, Julia, CUDA, OpenACC, and OpenCL on both CPU and GPU architectures.</li>
-                                        <li>Managed clusters, performed performance analysis, and developed parallel computing solutions with MPI and CUDA. Designed and implemented a distributed learning system using Golang with MPI for inter-process communication.</li>
-                                    </ul>
+
+                                <div class="project-block" style="margin-top: 1.5rem;">
+                                    <h5 style="color: var(--highlight); font-size: clamp(1rem, 1.3vw, 1.4rem); margin-bottom: 0.5rem;">Project 1: Distributed Deep Learning with Golang</h5>
+                                    <div class="description">
+                                        <p>Investigated the viability and performance of Golang as a high-performance alternative to Python for scalable, distributed deep learning. Implemented a ResNet50 model from scratch using the Gorgonia package to leverage GPU acceleration. Designed robust deployment pipelines for HPC clusters using Docker and Singularity, and proposed a novel real-time, asynchronous weight-updating mechanism to optimize distributed and federated learning systems.</p>
+                                        <p style="margin-top: 1rem;"><strong>Key Contributions &amp; Technical Details:</strong></p>
+                                        <ul>
+                                            <li><strong>Deep Learning Implementation:</strong> Built and trained ResNet architectures (ResNet50, ResNet101, ResNet151) from scratch in Golang utilizing the Gorgonia library for automatic differentiation and multidimensional tensor operations with CUDA support.</li>
+                                            <li><strong>HPC Environment Configuration:</strong> Engineered isolated execution environments using Singularity and Docker to compile and deploy native Golang binaries directly to the Emmy HPC cluster, solving complex and heavy Python dependency issue.</li>
+                                            <li><strong>Performance Benchmarking:</strong> Conducted extensive performance evaluations comparing Golang and Python models. Analyzed GPU utilization, batch-size scalability, and time consumption across different execution environments (with and without Singularity).</li>
+                                            <li><strong>Scalability Design:</strong> Laid the architectural groundwork for a complete distributed learning system by preparing the model for MPI-based gradient aggregation and concurrent data loading via Goroutines.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tags">
+                                        <span>Golang</span>
+                                        <span>Python</span>
+                                        <span>Gorgonia</span>
+                                        <span>CGO</span>
+                                        <span>CUDA</span>
+                                        <span>Docker</span>
+                                        <span>Singularity</span>
+                                        <span>HPC</span>
+                                        <span>Distributed Systems</span>
+                                        <span>MPI</span>
+                                        <span>Deep Learning</span>
+                                    </div>
                                 </div>
-                                <div class="tags">
-                                    <span>Golang</span>
-                                    <span>Gorgonia</span>
-                                    <span>Singularity</span>
-                                    <span>Docker</span>
-                                    <span>HPC benchmark</span>
-                                    <span>CUDA</span>
-                                    <span>Linux</span>
-                                    <span>MPI</span>
+
+                                <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 2rem 0;">
+
+                                <div class="project-block">
+                                    <h5 style="color: var(--highlight); font-size: clamp(1rem, 1.3vw, 1.4rem); margin-bottom: 0.5rem;">Project 2: HPC Benchmarking &amp; Performance Assessment</h5>
+                                    <div class="description">
+                                        <p>Evaluated High-Performance Computing (HPC) system capabilities through comprehensive benchmarking of computational velocity and storage I/O on heterogeneous architectures. The project focused on industry-standard benchmarks as well as a deep dive into the MiniBUDE molecular docking application.</p>
+                                        <p style="margin-top: 1rem;"><strong>Key Contributions &amp; Technical Details:</strong></p>
+                                        <ul>
+                                            <li><strong>System Benchmarking:</strong> Executed standard HPC benchmarks in the GWDG SCC cluster, including IO500 (MPI-based storage performance using ior and mdtest), HPL (dense linear system via LU factorization using OpenBLAS and OpenMPI), HPCG, and STREAM (memory bandwidth).</li>
+                                            <li><strong>MiniBUDE Implementation &amp; Scaling:</strong> Conducted an in-depth exploration of the MiniBUDE benchmark (simulating NDM-1 protein folding). Configured problem sizes (Small, Medium, Large) to analyze linear scalability and task assignment overheads.</li>
+                                            <li><strong>CPU Parallelization &amp; Fine-tuning:</strong> Analyzed multithreading performance using OpenMP and Julia. Showcased the performance impact of CPU core matching to threads in OpenMP (achieving linear scaling up to 16 cores), and demonstrated Julia's JIT compilation reaching single-threaded speeds up to 36 GFlops/s (7x faster than the OpenMP baseline).</li>
+                                            <li><strong>GPU Acceleration &amp; Offloading:</strong> Evaluated GPU acceleration on NVIDIA V100 architectures using CUDA and OpenCL. Achieved computational speeds exceeding 10 TFlops/s for large problem sizes in CUDA. Assessed the limitations of compiler dependencies like NVPTX64 for OpenMP target offloading and OpenACC.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tags">
+                                        <span>HPC</span>
+                                        <span>GWDG SCC</span>
+                                        <span>MiniBUDE</span>
+                                        <span>IO500</span>
+                                        <span>HPL</span>
+                                        <span>HPCG</span>
+                                        <span>STREAM</span>
+                                        <span>OpenMP</span>
+                                        <span>Julia</span>
+                                        <span>CUDA</span>
+                                        <span>OpenCL</span>
+                                        <span>MPI</span>
+                                    </div>
+                                </div>
+
+                                <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 2rem 0;">
+
+                                <div class="project-block">
+                                    <h5 style="color: var(--highlight); font-size: clamp(1rem, 1.3vw, 1.4rem); margin-bottom: 0.5rem;">Project 3: Parallel Deep Learning Pipelines Using Go and MPI</h5>
+                                    <div class="description">
+                                        <p>Developed a distributed deep learning framework from scratch using Golang and Message Passing Interface (MPI) to accelerate neural network training across multiple nodes in HPC environments.</p>
+                                        <p style="margin-top: 1rem;"><strong>Key Contributions &amp; Technical Details:</strong></p>
+                                        <ul>
+                                            <li><strong>Network Implementation:</strong> Built a fully connected neural network entirely in Golang, implementing forward propagation, error backpropagation, L2 loss, and mini-batch gradient descent (MBGD). Utilized the <code>gonum</code> library for matrix operations.</li>
+                                            <li><strong>MPI Integration:</strong> Leveraged CGO to integrate C-based MPI libraries into Golang, allowing for multi-node task parallelism and dynamic process allocation on the GWDG supercomputer cluster.</li>
+                                            <li><strong>Distributed Training Strategies:</strong> Implemented and compared two distributed communication approaches for weight synchronization: a non-collective (point-to-point via send/recv) method and a collective (Allreduce) method.</li>
+                                            <li><strong>Performance Analysis:</strong> Evaluated the speedup on the Iris and Intel Image Classification datasets. Demonstrated near-linear acceleration up to 16 nodes, beyond which MPI communication overhead began to offset parallelization benefits.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="tags">
+                                        <span>Golang</span>
+                                        <span>MPI</span>
+                                        <span>Distributed Deep Learning</span>
+                                        <span>HPC</span>
+                                        <span>CGO</span>
+                                        <span>Gonum</span>
+                                        <span>GWDG</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -237,7 +304,7 @@
             </section>
 
             <section id="publications" class="publications">
-                <h2><i class="fas fa-book"></i> Publications</h2>
+                <h2><i class="fas fa-book"></i> Publications &amp; Patents</h2>
                 <div class="publication-list">
                     <div class="publication">
                         <div class="title">
@@ -292,6 +359,23 @@
                         </div>
                         <div class="status">
                             Accepted
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <div class="title">
+                            Patent: ZL2011 1 0004207.2
+                        </div>
+                        <div class="authors">
+                            Silin Zhao
+                        </div>
+                        <div class="details">
+                            <span class="type">Patent</span> • 
+                            <span class="institution">China National Intellectual Property Administration</span> • 
+                            <span class="year">2015</span>
+                        </div>
+                        <div class="status">
+                            Granted
                         </div>
                     </div>
                 </div>
@@ -371,14 +455,6 @@
                             <span class="institution">Ministry of Education, PRC</span>
                         </div>
                     </div>
-
-                    <div class="entry">
-                        <div class="cert-content">
-                            <span class="date">2015</span>
-                            <span class="title">Patent: ZL2011 1 0004207.2</span>
-                            <span class="institution">China National Intellectual Property Administration</span>
-                        </div>
-                    </div>
                 </div>
             </section>
 
@@ -396,6 +472,18 @@
                                 <li>Aichat project: conversational AI interface with extensible plugin architecture</li>
                                 <li>RAG pipelines with hybrid search and context-aware retrieval using Qdrant</li>
                                 <li>API Integration: experience with leading commercial APIs and local API implementations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-network-wired"></i> High-Performance &amp; Parallel Computing</h3>
+                        <div class="skill-description">
+                            <ul>
+                                <li><strong>Cluster Administration:</strong> Managed compute clusters, ensuring optimal resource allocation, scheduling efficiency, and system reliability for multiple concurrent workloads.</li>
+                                <li><strong>Performance Analysis:</strong> Performed deep-dive performance profiling to identify system bottlenecks and optimize compute resource utilization.</li>
+                                <li><strong>Parallel Computing Development:</strong> Engineered high-performance parallel computing solutions leveraging MPI for distributed memory and CUDA for GPU acceleration.</li>
+                                <li><strong>Distributed Systems Integration:</strong> Designed and implemented scalable distributed learning systems, utilizing Golang and MPI for efficient, low-latency inter-process communication across nodes.</li>
                             </ul>
                         </div>
                     </div>
@@ -476,54 +564,45 @@
             });
         })();
 
-        // ---- Sidebar toggle ----
-        (function() {
-            var body = document.body;
-            var closeBtn = document.getElementById('sidebarClose');
-            var reopenBtn = document.getElementById('sidebarReopen');
-
-            if (localStorage.getItem('sidebar-collapsed') === 'true') {
-                body.classList.add('sidebar-collapsed');
-            }
-
-            closeBtn.addEventListener('click', function() {
-                body.classList.add('sidebar-collapsed');
-                localStorage.setItem('sidebar-collapsed', 'true');
-            });
-
-            reopenBtn.addEventListener('click', function() {
-                body.classList.remove('sidebar-collapsed');
-                localStorage.setItem('sidebar-collapsed', 'false');
-            });
-        })();
-
-        // Intersection Observer for scroll-spy sidebar
+        // Intersection Observer for scroll-spy nav
         const sections = document.querySelectorAll('section[id]');
-        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        const navLinks = document.querySelectorAll('.nav-link');
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const id = entry.target.getAttribute('id');
-                const link = document.querySelector(`.sidebar-link[href="#${id}"]`);
+                const link = document.querySelector(`.nav-link[href="#${id}"]`);
                 if (entry.isIntersecting) {
-                    sidebarLinks.forEach(l => l.classList.remove('active'));
-                    if (link) link.classList.add('active');
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    if (link) {
+                        link.classList.add('active');
+                        // Optional: Ensure the active link is visible in the horizontally scrolled nav
+                        link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    }
                 }
             });
         }, {
-            rootMargin: '-20% 0px -70% 0px',
+            // Offset for sticky header: adjust as needed based on header height
+            rootMargin: '-150px 0px -60% 0px',
             threshold: 0
         });
 
         sections.forEach(section => observer.observe(section));
 
-        // Smooth scroll on sidebar link click
-        sidebarLinks.forEach(link => {
+        // Smooth scroll on nav link click
+        navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
+                const targetId = link.getAttribute('href');
+                const target = document.querySelector(targetId);
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Offset for sticky header
+                    const headerHeight = document.getElementById('site-header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({
+                        top: targetPosition - headerHeight - 20, // 20px extra padding
+                        behavior: 'smooth'
+                    });
                 }
             });
         });

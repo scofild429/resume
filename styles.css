@@ -122,181 +122,100 @@ body::before {
 
 header {
     text-align: center;
-    padding: clamp(1.5rem, 3vw, 3rem) 0;
+    padding: clamp(1rem, 2vw, 2rem) 0;
     border-bottom: 2px solid var(--bg-header-border);
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--bg-body);
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 clamp(1rem, 2vw, 2rem);
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
 .content-wrapper {
-    display: grid;
-    grid-template-columns: var(--sidebar-width) 1fr;
-    gap: clamp(0.5rem, 2vw, 3rem);
-    align-items: start;
-    transition: grid-template-columns 0.3s ease, gap 0.3s ease;
+    display: block;
+    margin-top: 2rem;
 }
 
 /* ================================================================
-   SIDEBAR
+   TOP NAVIGATION
    ================================================================ */
-.sidebar {
-    position: sticky;
-    top: 2rem;
-    max-height: calc(100vh - 4rem);
-    overflow-y: auto;
-    padding-right: clamp(0.25rem, 1vw, 1rem);
-    border-right: 1px solid var(--border-medium);
-    transition: all 0.3s ease;
-    overflow-x: hidden;
+.top-nav {
+    width: 100%;
+    margin-top: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.2rem;
 }
 
-.sidebar-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    padding: 0 clamp(0.4rem, 0.8vw, 1rem);
-}
-
-.sidebar-title {
-    font-size: clamp(0.7rem, 0.9vw, 0.85rem);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.sidebar-close {
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    cursor: pointer;
-    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
-    padding: 0.25rem;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.2s, background 0.2s;
-    flex-shrink: 0;
-}
-
-.sidebar-close:hover {
-    color: var(--text);
-    background: var(--bg-hover);
-}
-
-.sidebar nav ul {
+.top-nav ul {
     list-style: none;
     padding: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: clamp(0.5rem, 1vw, 1.5rem);
+    width: max-content;
 }
 
-.sidebar nav ul li {
-    margin-bottom: 0.3rem;
-}
-
-.sidebar-link {
+.nav-link {
     display: flex;
     align-items: center;
-    gap: clamp(0.3rem, 0.8vw, 0.8rem);
-    padding: clamp(0.4rem, 0.7vw, 0.7rem) clamp(0.4rem, 0.8vw, 1rem);
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
     color: var(--text);
     text-decoration: none;
-    border-radius: 8px;
-    font-size: clamp(0.8rem, 1.1vw, 1.1rem);
+    border-radius: 20px;
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
     transition: all 0.2s ease;
-    border-left: 3px solid transparent;
+    border: 1px solid transparent;
     white-space: nowrap;
+    background: var(--bg-elevated);
 }
 
-.sidebar-link:hover {
+.nav-link:hover {
     background: var(--bg-hover);
     color: var(--highlight);
+    border-color: var(--border-medium);
 }
 
-.sidebar-link.active {
+.nav-link.active {
     background: var(--bg-active);
     color: var(--highlight);
-    border-left-color: var(--highlight);
+    border-color: var(--highlight);
     font-weight: bold;
 }
 
-.sidebar-link i {
-    width: 1.2rem;
+.nav-link i {
     text-align: center;
-    font-size: clamp(0.7rem, 1vw, 0.95rem);
-    flex-shrink: 0;
+    font-size: clamp(0.8rem, 1vw, 1rem);
     color: var(--accent);
 }
 
-.sidebar-link.active i {
+.nav-link.active i {
     color: var(--highlight);
 }
 
-.sidebar::-webkit-scrollbar {
-    width: 4px;
+.top-nav::-webkit-scrollbar {
+    height: 4px;
 }
-
-.sidebar::-webkit-scrollbar-track {
+.top-nav::-webkit-scrollbar-track {
     background: transparent;
 }
-
-.sidebar::-webkit-scrollbar-thumb {
+.top-nav::-webkit-scrollbar-thumb {
     background: var(--scrollbar-thumb);
     border-radius: 2px;
 }
-
-.sidebar::-webkit-scrollbar-thumb:hover {
+.top-nav::-webkit-scrollbar-thumb:hover {
     background: var(--scrollbar-thumb-hover);
-}
-
-/* ================================================================
-   SIDEBAR COLLAPSED STATE
-   ================================================================ */
-body.sidebar-collapsed .content-wrapper {
-    grid-template-columns: 0px 1fr;
-    gap: 0;
-}
-
-body.sidebar-collapsed .sidebar {
-    width: 0;
-    min-width: 0;
-    padding: 0;
-    border: none;
-    opacity: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-/* Reopen button — hidden by default, shown when sidebar is collapsed */
-.sidebar-reopen {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 90;
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-medium);
-    border-left: none;
-    border-radius: 0 8px 8px 0;
-    color: var(--text);
-    cursor: pointer;
-    padding: 0.6rem 0.4rem;
-    font-size: 0.9rem;
-    transition: background 0.2s, color 0.2s;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
-}
-
-.sidebar-reopen:hover {
-    background: var(--bg-hover);
-    color: var(--highlight);
-}
-
-body.sidebar-collapsed .sidebar-reopen {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 /* ================================================================
@@ -1007,18 +926,17 @@ h2 i {
 /* ================================================================
    SMALL SCREEN ADJUSTMENTS
    ================================================================ */
-@media (max-width: 600px) {
-    .content-wrapper {
-        grid-template-columns: clamp(100px, 22vw, 260px) 1fr;
+@media (max-width: 950px) {
+    .top-nav ul {
+        justify-content: flex-start;
+        padding: 0 0.5rem;
     }
+}
 
-    .sidebar-link {
-        font-size: clamp(0.7rem, 2.8vw, 0.9rem);
-        padding: 0.35rem 0.4rem;
-    }
-
-    .sidebar-link i {
-        width: 0.9rem;
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: clamp(0.8rem, 2.8vw, 0.95rem);
+        padding: 0.4rem 0.8rem;
     }
 
     .timeline .entry {
@@ -1031,10 +949,5 @@ h2 i {
         width: 36px;
         height: 36px;
         font-size: 1rem;
-    }
-
-    .sidebar-reopen {
-        padding: 0.5rem 0.3rem;
-        font-size: 0.8rem;
     }
 }
