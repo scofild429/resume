@@ -5,8 +5,8 @@
     /* Text & accent */
     --text: #e1e1e1;
     --text-muted: rgba(225, 225, 225, 0.7);
-    --accent: #3d5a80;
-    --highlight: #748cab;
+    --accent: #8eb1dd; /* Lighter blue for better contrast in dark mode */
+    --highlight: #b0ccf0; /* Even lighter blue for highlight */
 
     /* Backgrounds */
     --bg-body: linear-gradient(135deg, #1a2634, #1d2d44);
@@ -687,7 +687,7 @@ h2 i {
 
 .dropdown-content a:hover {
     background: var(--accent);
-    color: #e1e1e1;
+    color: var(--bg-modal); /* Ensures contrast against accent color */
 }
 
 .dropdown:hover .dropdown-content {

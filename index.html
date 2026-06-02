@@ -549,11 +549,14 @@
             if (saved === 'light') {
                 html.setAttribute('data-theme', 'light');
                 icon.className = 'fas fa-sun';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                icon.className = 'fas fa-moon';
             }
 
             toggle.addEventListener('click', function() {
                 if (html.getAttribute('data-theme') === 'light') {
-                    html.removeAttribute('data-theme');
+                    html.setAttribute('data-theme', 'dark');
                     icon.className = 'fas fa-moon';
                     localStorage.setItem('theme', 'dark');
                 } else {
